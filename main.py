@@ -13,7 +13,7 @@ logging.basicConfig(
     level=logging.INFO,  # Set the logging level (DEBUG, INFO, WARNING, etc.)
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("pipeline.log"),  # Log to a file
+        logging.FileHandler("logs/pipeline.log"),  # Log to a file
         logging.StreamHandler()  # Log to the console
     ]
 )
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 logger.info("Starting the pipeline execution...")
 
 # Path to the checkpoint file
-CHECKPOINT_FILE = "pipeline_checkpoint.json"
+CHECKPOINT_FILE = "config/pipeline_checkpoint.json"
 
 
 def load_checkpoint():

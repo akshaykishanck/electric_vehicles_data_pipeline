@@ -1026,3 +1026,63 @@ py4j.protocol.Py4JNetworkError: Error while sending or receiving
 2024-11-25 13:49:17,863 - mongo - INFO - Successfully fetched 270 records from collection: vehicles_per_make_year.
 2024-11-25 13:49:18,768 - __main__ - INFO - Checkpoint saved for stage: visualization
 2024-11-25 13:49:18,769 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 23:24:51,741 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 23:24:51,742 - __main__ - INFO - Reset and Start True
+2024-11-25 23:24:51,742 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 23:24:51,751 - utils.mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-25 23:24:51,752 - utils.mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 23:24:51,752 - utils.mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 23:24:51,753 - utils.mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 23:24:51,753 - utils.mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 23:24:51,754 - utils.mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 23:24:51,754 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 23:24:51,754 - __main__ - INFO - Running download...
+2024-11-25 23:24:51,754 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 23:24:51,754 - pipeline.download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 23:24:52,640 - pipeline.download - INFO - Download completed successfully
+2024-11-25 23:25:28,222 - utils.mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 23:25:29,727 - utils.mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 23:25:32,925 - utils.mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 23:25:33,218 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 23:25:33,218 - __main__ - INFO - Running transform...
+2024-11-25 23:25:33,218 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 23:25:33,218 - utils.mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 23:25:33,222 - utils.mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 23:25:36,859 - utils.mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 23:25:38,644 - pipeline.transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 23:25:54,549 - pipeline.transform - INFO - Dropping the following columns
+2024-11-25 23:25:54,565 - pipeline.transform - INFO - Filtering ev relevant data
+2024-11-25 23:25:55,790 - pipeline.transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 23:25:55,790 - pipeline.transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 23:25:58,062 - pipeline.transform - INFO - DataFrame converted to Pandas. Shape: (216732, 12)
+2024-11-25 23:25:59,330 - pipeline.transform - INFO - DataFrame converted to list of dictionaries with 216732 records.
+2024-11-25 23:25:59,377 - pipeline.transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 23:26:00,258 - pipeline.transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 23:26:00,364 - utils.mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 23:26:01,318 - utils.mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 23:26:02,984 - utils.mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 23:26:03,141 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 23:26:03,414 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 23:26:03,414 - __main__ - INFO - Running analyze...
+2024-11-25 23:26:03,414 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 23:26:03,416 - utils.mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 23:26:03,683 - utils.mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 23:26:03,706 - utils.mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 23:26:03,708 - utils.mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 23:26:03,740 - utils.mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 23:26:03,743 - utils.mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 23:26:03,763 - utils.mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 23:26:03,764 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 23:26:03,764 - __main__ - INFO - Running visualization...
+2024-11-25 23:26:03,765 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 23:26:03,765 - utils.mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 23:26:03,767 - utils.mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 23:26:03,770 - utils.mongo - INFO - Successfully fetched 32 records from collection: vehicles_per_type_year.
+2024-11-25 23:26:03,771 - utils.mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 23:26:03,773 - utils.mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 23:26:03,779 - utils.mongo - INFO - Successfully fetched 881 records from collection: vehicles_per_county_year.
+2024-11-25 23:26:03,781 - utils.mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 23:26:03,782 - utils.mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 23:26:03,786 - utils.mongo - INFO - Successfully fetched 270 records from collection: vehicles_per_make_year.
+2024-11-25 23:26:04,570 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 23:26:04,571 - py4j.clientserver - INFO - Closing down clientserver connection
