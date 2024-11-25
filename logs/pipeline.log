@@ -1,0 +1,1028 @@
+2024-11-24 22:53:25,765 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 22:53:25,834 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-24 22:53:25,835 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-24 22:53:25,835 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 22:53:25,836 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-24 22:53:25,836 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-24 22:53:25,837 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-24 22:53:25,837 - root - INFO - Starting Download stage
+2024-11-24 22:53:25,837 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 22:53:26,219 - download - INFO - Download completed successfully
+2024-11-24 22:53:43,979 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 22:53:47,904 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 22:53:48,233 - root - INFO - Download stage completed
+2024-11-24 22:53:48,234 - root - INFO - Starting transformation stage
+2024-11-24 22:53:48,234 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 22:53:53,055 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 22:53:55,019 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 22:54:13,599 - transform - INFO - Dropping the following columns
+2024-11-24 22:54:13,612 - transform - INFO - Filtering ev relevant data
+2024-11-24 22:54:15,271 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 22:54:15,271 - root - INFO - Transformation completed
+2024-11-24 22:54:15,271 - root - INFO - Inserting transformed data into MongoDB
+2024-11-24 22:54:15,300 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-24 22:54:15,300 - mongo - ERROR - Error occurred while inserting data: document must be an instance of dict, bson.son.SON, bson.raw_bson.RawBSONDocument, or a type that inherits from collections.MutableMapping
+2024-11-24 22:54:15,301 - root - INFO - Starting Analyze stage
+2024-11-24 22:54:15,317 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 22:54:15,317 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 22:54:15,317 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 22:54:15,317 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 22:54:15,333 - mongo - WARNING - No data found in collection: vehicles_per_type_year.
+2024-11-24 22:54:15,334 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 22:54:15,347 - mongo - WARNING - No data found in collection: vehicles_per_county_year.
+2024-11-24 22:54:15,347 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 22:54:15,354 - mongo - WARNING - No data found in collection: vehicles_per_make_year.
+2024-11-24 22:54:15,355 - __main__ - INFO - Visualizing EV increase by year...
+2024-11-24 22:54:15,856 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:01:07,984 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:01:08,046 - mongo - INFO - Found 1 collections in database vehicle_db. Deleting them...
+2024-11-24 23:01:08,047 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 23:01:08,048 - root - INFO - Starting Download stage
+2024-11-24 23:01:08,048 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 23:01:08,361 - download - INFO - Download completed successfully
+2024-11-24 23:01:26,513 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 23:01:30,184 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:01:30,467 - root - INFO - Download stage completed
+2024-11-24 23:01:30,467 - root - INFO - Starting transformation stage
+2024-11-24 23:01:30,467 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 23:01:34,968 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 23:01:37,021 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 23:01:55,074 - transform - INFO - Dropping the following columns
+2024-11-24 23:01:55,092 - transform - INFO - Filtering ev relevant data
+2024-11-24 23:01:56,794 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 23:01:56,794 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-24 23:01:59,917 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-24 23:02:01,378 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-24 23:02:01,439 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-24 23:02:01,440 - transform - ERROR - An unexpected error occurred: name 'json' is not defined
+2024-11-24 23:02:01,441 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:02:42,143 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:02:42,229 - mongo - INFO - Found 1 collections in database vehicle_db. Deleting them...
+2024-11-24 23:02:42,230 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 23:02:42,231 - root - INFO - Starting Download stage
+2024-11-24 23:02:42,231 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 23:02:43,854 - download - INFO - Download completed successfully
+2024-11-24 23:03:00,751 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 23:03:04,462 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:03:04,757 - root - INFO - Download stage completed
+2024-11-24 23:03:04,757 - root - INFO - Starting transformation stage
+2024-11-24 23:03:04,758 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 23:03:08,910 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 23:03:10,793 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 23:03:28,512 - transform - INFO - Dropping the following columns
+2024-11-24 23:03:28,529 - transform - INFO - Filtering ev relevant data
+2024-11-24 23:03:30,068 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 23:03:30,068 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-24 23:03:32,971 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-24 23:03:34,420 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-24 23:03:34,477 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-24 23:03:35,580 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-24 23:03:35,767 - root - INFO - Transformation completed
+2024-11-24 23:03:35,767 - root - INFO - Inserting transformed data into MongoDB
+2024-11-24 23:03:36,974 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-24 23:03:39,286 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:03:39,549 - root - INFO - Starting Analyze stage
+2024-11-24 23:03:39,564 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:03:39,564 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:03:39,564 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:03:39,564 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:03:39,574 - mongo - WARNING - No data found in collection: vehicles_per_type_year.
+2024-11-24 23:03:39,576 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:03:39,584 - mongo - WARNING - No data found in collection: vehicles_per_county_year.
+2024-11-24 23:03:39,585 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:03:39,595 - mongo - WARNING - No data found in collection: vehicles_per_make_year.
+2024-11-24 23:03:39,596 - __main__ - INFO - Visualizing EV increase by year...
+2024-11-24 23:03:40,096 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:08:51,414 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:08:51,470 - mongo - INFO - Found 2 collections in database vehicle_db. Deleting them...
+2024-11-24 23:08:51,472 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 23:08:51,473 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-24 23:08:51,473 - root - INFO - Starting Download stage
+2024-11-24 23:08:51,473 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 23:08:51,852 - download - INFO - Download completed successfully
+2024-11-24 23:09:09,233 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 23:09:13,646 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:09:14,067 - root - INFO - Download stage completed
+2024-11-24 23:09:14,068 - root - INFO - Starting transformation stage
+2024-11-24 23:09:14,069 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 23:09:18,771 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 23:09:20,850 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 23:09:38,691 - transform - INFO - Dropping the following columns
+2024-11-24 23:09:38,710 - transform - INFO - Filtering ev relevant data
+2024-11-24 23:09:40,193 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 23:09:40,194 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-24 23:09:43,332 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-24 23:09:44,881 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-24 23:09:44,998 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-24 23:09:46,099 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-24 23:09:46,249 - root - INFO - Transformation completed
+2024-11-24 23:09:46,250 - root - INFO - Inserting transformed data into MongoDB
+2024-11-24 23:09:47,386 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-24 23:09:49,744 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:09:50,025 - root - INFO - Starting Analyze stage
+2024-11-24 23:09:50,364 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-24 23:09:50,425 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-24 23:09:50,456 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-24 23:09:50,456 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:09:50,466 - mongo - INFO - Successfully fetched 37 records from collection: vehicles_per_type_year.
+2024-11-24 23:09:50,468 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:09:50,483 - mongo - INFO - Successfully fetched 902 records from collection: vehicles_per_county_year.
+2024-11-24 23:09:50,485 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:09:50,495 - mongo - INFO - Successfully fetched 275 records from collection: vehicles_per_make_year.
+2024-11-24 23:09:50,497 - __main__ - INFO - Visualizing EV increase by year...
+2024-11-24 23:09:51,022 - __main__ - INFO - Visualizing counties with highest and least EVs...
+2024-11-24 23:09:51,280 - __main__ - INFO - Visualizing most popular make by year...
+2024-11-24 23:09:51,541 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:43:17,997 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:43:18,112 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-24 23:43:18,114 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-24 23:43:18,115 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-24 23:43:18,116 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-24 23:43:18,117 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 23:43:18,117 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-24 23:43:18,118 - __main__ - INFO - Starting Download stage...
+2024-11-24 23:43:18,118 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 23:43:18,536 - download - INFO - Download completed successfully
+2024-11-24 23:43:38,015 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 23:43:42,633 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:43:43,064 - __main__ - INFO - Checkpoint updated: download completed.
+2024-11-24 23:43:43,064 - __main__ - INFO - Starting Transformation stage...
+2024-11-24 23:43:43,065 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 23:43:48,318 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 23:43:50,571 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 23:44:09,323 - transform - INFO - Dropping the following columns
+2024-11-24 23:44:09,343 - transform - INFO - Filtering ev relevant data
+2024-11-24 23:44:10,974 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 23:44:10,975 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-24 23:44:14,244 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-24 23:44:15,797 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-24 23:44:15,913 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-24 23:44:17,072 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-24 23:44:18,564 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-24 23:44:21,000 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:44:21,320 - __main__ - INFO - Checkpoint updated: transform completed.
+2024-11-24 23:44:21,321 - __main__ - INFO - Starting Analyze stage...
+2024-11-24 23:44:21,337 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:44:21,337 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:44:21,337 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:44:21,338 - __main__ - INFO - Checkpoint updated: analyze completed.
+2024-11-24 23:44:21,338 - __main__ - INFO - Starting Visualization stage...
+2024-11-24 23:44:21,338 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:44:21,346 - mongo - WARNING - No data found in collection: vehicles_per_type_year.
+2024-11-24 23:44:21,347 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:44:21,356 - mongo - WARNING - No data found in collection: vehicles_per_county_year.
+2024-11-24 23:44:21,356 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:44:21,364 - mongo - WARNING - No data found in collection: vehicles_per_make_year.
+2024-11-24 23:44:21,364 - __main__ - ERROR - Visualization stage failed: 'modelYear'
+2024-11-24 23:44:21,864 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:45:33,139 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:45:33,238 - mongo - INFO - Found 2 collections in database vehicle_db. Deleting them...
+2024-11-24 23:45:33,239 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 23:45:33,240 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-24 23:45:33,240 - __main__ - INFO - Starting Visualization stage...
+2024-11-24 23:45:33,241 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:45:33,253 - mongo - WARNING - No data found in collection: vehicles_per_type_year.
+2024-11-24 23:45:33,255 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:45:33,265 - mongo - WARNING - No data found in collection: vehicles_per_county_year.
+2024-11-24 23:45:33,267 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:45:33,278 - mongo - WARNING - No data found in collection: vehicles_per_make_year.
+2024-11-24 23:45:33,279 - __main__ - ERROR - Visualization stage failed: 'modelYear'
+2024-11-24 23:45:33,777 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:47:15,605 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:47:15,605 - __main__ - INFO - Starting Visualization stage...
+2024-11-24 23:47:15,607 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:47:15,712 - mongo - WARNING - No data found in collection: vehicles_per_type_year.
+2024-11-24 23:47:15,713 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:47:15,722 - mongo - WARNING - No data found in collection: vehicles_per_county_year.
+2024-11-24 23:47:15,723 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:47:15,730 - mongo - WARNING - No data found in collection: vehicles_per_make_year.
+2024-11-24 23:47:15,732 - __main__ - ERROR - Visualization stage failed: 'modelYear'
+2024-11-24 23:47:16,231 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:47:51,026 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:47:51,114 - mongo - WARNING - No collections found in database vehicle_db. Nothing to delete.
+2024-11-24 23:47:51,114 - __main__ - INFO - Starting Download stage...
+2024-11-24 23:47:51,114 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 23:47:52,156 - download - INFO - Download completed successfully
+2024-11-24 23:48:11,355 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 23:48:15,949 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:48:16,423 - __main__ - INFO - Checkpoint updated: download completed.
+2024-11-24 23:48:16,425 - __main__ - INFO - Starting Transformation stage...
+2024-11-24 23:48:16,425 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 23:48:20,976 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 23:48:23,005 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 23:48:41,705 - transform - INFO - Dropping the following columns
+2024-11-24 23:48:41,722 - transform - INFO - Filtering ev relevant data
+2024-11-24 23:48:43,252 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 23:48:43,252 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-24 23:48:46,111 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-24 23:48:47,764 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-24 23:48:47,853 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-24 23:48:49,062 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-24 23:48:50,615 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-24 23:48:53,017 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:48:53,300 - __main__ - INFO - Checkpoint updated: transform completed.
+2024-11-24 23:48:53,301 - __main__ - INFO - Starting Analyze stage...
+2024-11-24 23:48:53,315 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:48:53,316 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:48:53,316 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:48:53,316 - __main__ - INFO - Checkpoint updated: analyze completed.
+2024-11-24 23:48:53,316 - __main__ - INFO - Starting Visualization stage...
+2024-11-24 23:48:53,316 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:48:53,323 - mongo - WARNING - No data found in collection: vehicles_per_type_year.
+2024-11-24 23:48:53,324 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:48:53,335 - mongo - WARNING - No data found in collection: vehicles_per_county_year.
+2024-11-24 23:48:53,337 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:48:53,345 - mongo - WARNING - No data found in collection: vehicles_per_make_year.
+2024-11-24 23:48:53,346 - __main__ - ERROR - Visualization stage failed: 'modelYear'
+2024-11-24 23:48:53,845 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:58:17,216 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:58:17,327 - mongo - INFO - Found 2 collections in database vehicle_db. Deleting them...
+2024-11-24 23:58:17,329 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-24 23:58:17,330 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-24 23:58:17,330 - __main__ - INFO - Starting Download stage...
+2024-11-24 23:58:17,330 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-24 23:58:17,690 - download - INFO - Download completed successfully
+2024-11-24 23:58:37,410 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-24 23:58:39,059 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-24 23:58:44,010 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:58:44,574 - __main__ - INFO - Checkpoint updated: download completed.
+2024-11-24 23:58:44,574 - __main__ - INFO - Starting Transformation stage...
+2024-11-24 23:58:44,574 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-24 23:58:44,579 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-24 23:58:50,375 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-24 23:58:52,862 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-24 23:59:12,165 - transform - INFO - Dropping the following columns
+2024-11-24 23:59:12,190 - transform - INFO - Filtering ev relevant data
+2024-11-24 23:59:13,932 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-24 23:59:13,933 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-24 23:59:17,951 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-24 23:59:19,492 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-24 23:59:19,579 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-24 23:59:20,781 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-24 23:59:21,142 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-24 23:59:22,763 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-24 23:59:25,867 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-24 23:59:26,381 - __main__ - INFO - Checkpoint updated: transform completed.
+2024-11-24 23:59:26,382 - __main__ - INFO - Starting Analyze stage...
+2024-11-24 23:59:26,385 - mongo - INFO - Connected to collection: ev_vehicle_data_clean
+2024-11-24 23:59:26,396 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-24 23:59:26,396 - mongo - ERROR - Error occurred while saving query output: No active exception to reraise
+2024-11-24 23:59:26,396 - __main__ - ERROR - Analyze stage failed: No active exception to reraise
+2024-11-24 23:59:26,893 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-24 23:59:55,098 - __main__ - INFO - Starting the pipeline execution...
+2024-11-24 23:59:55,099 - __main__ - INFO - Starting Analyze stage...
+2024-11-24 23:59:55,103 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-24 23:59:55,594 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-24 23:59:55,631 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-24 23:59:55,636 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-24 23:59:55,684 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-24 23:59:55,691 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-24 23:59:55,738 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-24 23:59:55,739 - __main__ - INFO - Checkpoint updated: analyze completed.
+2024-11-24 23:59:55,740 - __main__ - INFO - Starting Visualization stage...
+2024-11-24 23:59:55,740 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-24 23:59:55,743 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-24 23:59:55,749 - mongo - INFO - Successfully fetched 37 records from collection: vehicles_per_type_year.
+2024-11-24 23:59:55,751 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-24 23:59:55,757 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-24 23:59:55,767 - mongo - INFO - Successfully fetched 902 records from collection: vehicles_per_county_year.
+2024-11-24 23:59:55,769 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-24 23:59:55,772 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-24 23:59:55,781 - mongo - INFO - Successfully fetched 275 records from collection: vehicles_per_make_year.
+2024-11-24 23:59:56,759 - __main__ - INFO - Checkpoint updated: visualize completed.
+2024-11-24 23:59:56,759 - __main__ - INFO - Pipeline execution completed successfully!
+2024-11-24 23:59:57,230 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 03:35:31,404 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 03:35:31,406 - __main__ - INFO - Checkpoint loaded successfully.
+2024-11-25 03:35:31,407 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 03:36:08,875 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 03:36:08,877 - __main__ - WARNING - No checkpoint file found. Starting pipeline from scratch.
+2024-11-25 03:36:08,877 - __main__ - INFO - Running download...
+2024-11-25 03:36:08,877 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 03:36:08,877 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 03:36:09,526 - download - INFO - Download completed successfully
+2024-11-25 03:36:31,367 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 03:36:33,019 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 03:36:37,840 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 03:36:38,320 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 03:36:38,321 - __main__ - INFO - Running transform...
+2024-11-25 03:36:38,321 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 03:36:38,321 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 03:36:38,325 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 03:36:48,403 - mongo - INFO - Successfully retrieved 433544 documents from collection ev_vehicle_data_raw.
+2024-11-25 03:36:53,135 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 03:37:30,884 - transform - INFO - Dropping the following columns
+2024-11-25 03:37:30,902 - transform - INFO - Filtering ev relevant data
+2024-11-25 03:37:33,365 - transform - INFO - Transformation completed! Total rows 433464
+2024-11-25 03:37:33,365 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 03:37:42,023 - transform - INFO - DataFrame converted to Pandas. Shape: (433544, 12)
+2024-11-25 03:37:45,722 - transform - INFO - DataFrame converted to list of dictionaries with 433544 records.
+2024-11-25 03:37:46,201 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 03:37:49,011 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 03:37:49,676 - mongo - INFO - Connected to collection: ev_vehicle_data_clean
+2024-11-25 03:37:52,851 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_clean
+2024-11-25 03:37:56,989 - mongo - ERROR - Error occurred while inserting data: batch op errors occurred, full error: {'writeErrors': [{'index': 216772, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: vehicle_db.ev_vehicle_data_clean index: _id_ dup key: { _id: 125450447 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 125450447}, 'op': {'City': 'Shoreline', 'County': 'King', 'DOL Vehicle ID': 125450447, 'Electric Range': 75.0, 'Electric Vehicle Type': 'Battery Electric Vehicle (BEV)', 'Make': 'NISSAN', 'Model': 'LEAF', 'Model Year': 2013, 'Postal Code': 98177.0, 'State': 'WA', 'VIN (1-10)': '1N4AZ0CP8D', '_id': 125450447}}], 'writeConcernErrors': [], 'nInserted': 216772, 'nUpserted': 0, 'nMatched': 0, 'nModified': 0, 'nRemoved': 0, 'upserted': []}
+2024-11-25 03:37:56,990 - __main__ - ERROR - Pipeline failed at transform with error: batch op errors occurred, full error: {'writeErrors': [{'index': 216772, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: vehicle_db.ev_vehicle_data_clean index: _id_ dup key: { _id: 125450447 }', 'keyPattern': {'_id': 1}, 'keyValue': {'_id': 125450447}, 'op': {'City': 'Shoreline', 'County': 'King', 'DOL Vehicle ID': 125450447, 'Electric Range': 75.0, 'Electric Vehicle Type': 'Battery Electric Vehicle (BEV)', 'Make': 'NISSAN', 'Model': 'LEAF', 'Model Year': 2013, 'Postal Code': 98177.0, 'State': 'WA', 'VIN (1-10)': '1N4AZ0CP8D', '_id': 125450447}}], 'writeConcernErrors': [], 'nInserted': 216772, 'nUpserted': 0, 'nMatched': 0, 'nModified': 0, 'nRemoved': 0, 'upserted': []}
+2024-11-25 03:37:59,126 - __main__ - INFO - Pipeline execution completed successfully!
+2024-11-25 03:37:59,129 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 03:50:59,789 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 03:50:59,791 - __main__ - INFO - Checkpoint loaded successfully.
+2024-11-25 03:50:59,792 - __main__ - INFO - Running transform...
+2024-11-25 03:50:59,792 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 03:50:59,792 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 03:50:59,889 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 03:51:13,704 - mongo - INFO - Successfully retrieved 433544 documents from collection ev_vehicle_data_raw.
+2024-11-25 03:51:19,231 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 03:51:33,881 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 03:54:30,604 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 03:54:30,605 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 03:54:30,726 - mongo - INFO - Found 6 collections in database vehicle_db. Deleting them...
+2024-11-25 03:54:30,730 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 03:54:30,732 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 03:54:30,733 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 03:54:30,734 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 03:54:30,735 - mongo - INFO - Collection 'ev_vehicle_data_clean' has been deleted.
+2024-11-25 03:54:30,736 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 03:54:30,737 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 03:54:30,737 - __main__ - INFO - Running download...
+2024-11-25 03:54:30,737 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 03:54:30,737 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 03:54:31,289 - download - INFO - Download completed successfully
+2024-11-25 03:54:51,137 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 03:54:53,060 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 03:54:58,611 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 03:54:59,256 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 03:54:59,256 - __main__ - INFO - Running transform...
+2024-11-25 03:54:59,257 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 03:54:59,257 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 03:54:59,260 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 03:55:05,616 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 03:55:08,276 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 03:55:27,398 - transform - INFO - Dropping the following columns
+2024-11-25 03:55:27,427 - transform - INFO - Filtering ev relevant data
+2024-11-25 03:55:30,175 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 03:55:30,175 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 03:55:34,149 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-25 03:55:35,686 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-25 03:55:35,770 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 03:55:36,961 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 03:55:37,192 - mongo - INFO - Connected to collection: ev_vehicle_data_clean
+2024-11-25 03:55:38,486 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_clean
+2024-11-25 03:55:41,292 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 03:55:41,779 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 03:55:42,468 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 03:55:42,468 - __main__ - INFO - Running analyze...
+2024-11-25 03:55:42,469 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 03:55:42,473 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 03:55:42,482 - mongo - ERROR - Query output is empty. No data to save.
+2024-11-25 03:55:42,482 - mongo - ERROR - Error occurred while saving query output: No active exception to reraise
+2024-11-25 03:55:42,482 - __main__ - ERROR - Pipeline failed at analyze with error: No active exception to reraise
+2024-11-25 03:55:42,482 - __main__ - INFO - Pipeline execution completed successfully!
+2024-11-25 03:55:42,980 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 04:08:38,136 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 04:08:38,138 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 04:08:38,321 - mongo - INFO - Found 2 collections in database vehicle_db. Deleting them...
+2024-11-25 04:08:38,324 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 04:08:38,325 - mongo - INFO - Collection 'ev_vehicle_data_clean' has been deleted.
+2024-11-25 04:08:38,325 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 04:08:38,326 - __main__ - INFO - Running download...
+2024-11-25 04:08:38,326 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 04:08:38,326 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 04:08:38,733 - download - INFO - Download completed successfully
+2024-11-25 04:08:59,817 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 04:09:01,810 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 04:09:07,787 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 04:09:08,509 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 04:09:08,509 - __main__ - INFO - Running transform...
+2024-11-25 04:09:08,510 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 04:09:08,510 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 04:09:08,514 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 04:09:15,256 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 04:09:18,026 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 04:09:37,662 - transform - INFO - Dropping the following columns
+2024-11-25 04:09:37,704 - transform - INFO - Filtering ev relevant data
+2024-11-25 04:09:40,698 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 04:09:40,698 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 04:09:45,052 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-25 04:09:46,838 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-25 04:09:46,989 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 04:09:48,306 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 04:09:48,665 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 04:09:50,223 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 04:09:53,496 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 04:09:54,040 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 04:09:54,745 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 04:09:54,746 - __main__ - INFO - Running analyze...
+2024-11-25 04:09:54,746 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 04:09:54,750 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 04:09:55,110 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 04:09:55,151 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 04:09:55,157 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 04:09:55,225 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 04:09:55,240 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 04:09:55,272 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 04:09:55,275 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 04:09:55,279 - __main__ - INFO - Running visualization...
+2024-11-25 04:09:55,279 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 04:09:55,279 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 04:09:55,284 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 04:09:55,291 - mongo - INFO - Successfully fetched 37 records from collection: vehicles_per_type_year.
+2024-11-25 04:09:55,293 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 04:09:55,297 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 04:09:55,315 - mongo - INFO - Successfully fetched 902 records from collection: vehicles_per_county_year.
+2024-11-25 04:09:55,320 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 04:09:55,325 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 04:09:55,340 - mongo - INFO - Successfully fetched 275 records from collection: vehicles_per_make_year.
+2024-11-25 04:09:56,442 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 04:09:56,442 - __main__ - INFO - Pipeline execution completed successfully!
+2024-11-25 04:09:56,443 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 05:19:44,713 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 05:19:44,715 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 05:19:44,946 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-25 05:19:44,949 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 05:19:44,951 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 05:19:44,952 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 05:19:44,954 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 05:19:44,955 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 05:19:44,956 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 05:19:44,956 - __main__ - INFO - Running download...
+2024-11-25 05:19:44,956 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 05:19:44,956 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 05:19:45,490 - download - INFO - Download completed successfully
+2024-11-25 05:20:08,488 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 05:20:10,518 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 05:20:17,277 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 05:20:18,082 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 05:20:18,083 - __main__ - INFO - Running transform...
+2024-11-25 05:20:18,083 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 05:20:18,083 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 05:20:18,089 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 05:20:25,423 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 05:20:28,381 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 05:20:48,743 - transform - INFO - Dropping the following columns
+2024-11-25 05:20:48,782 - transform - INFO - Filtering ev relevant data
+2024-11-25 05:20:52,124 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 05:20:52,125 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 05:20:57,936 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-25 05:20:59,967 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-25 05:21:00,310 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 05:21:01,933 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 05:21:02,319 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 05:21:04,166 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 05:21:08,219 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 05:21:08,936 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 05:21:09,922 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 05:21:09,923 - __main__ - INFO - Running analyze...
+2024-11-25 05:21:09,923 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 05:21:09,929 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 05:21:10,306 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 05:21:10,350 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 05:21:10,358 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 05:21:10,417 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 05:21:10,426 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 05:21:10,474 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 05:21:10,478 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 05:21:10,479 - __main__ - INFO - Running visualization...
+2024-11-25 05:21:10,479 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 05:21:10,479 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 05:21:10,485 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 05:21:10,501 - mongo - INFO - Successfully fetched 37 records from collection: vehicles_per_type_year.
+2024-11-25 05:21:10,505 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 05:21:10,512 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 05:21:10,527 - mongo - INFO - Successfully fetched 902 records from collection: vehicles_per_county_year.
+2024-11-25 05:21:10,531 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 05:21:10,535 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 05:21:10,549 - mongo - INFO - Successfully fetched 275 records from collection: vehicles_per_make_year.
+2024-11-25 05:21:11,842 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 05:21:11,842 - __main__ - INFO - Pipeline execution completed successfully!
+2024-11-25 05:21:11,843 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 05:43:13,266 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 05:43:13,267 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 05:43:13,509 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-25 05:43:13,512 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 05:43:13,515 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 05:43:13,517 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 05:43:13,518 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 05:43:13,522 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 05:43:13,523 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 05:43:13,523 - __main__ - INFO - Running download...
+2024-11-25 05:43:13,524 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 05:43:13,524 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 05:43:14,345 - download - INFO - Download completed successfully
+2024-11-25 05:43:41,111 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 05:43:43,655 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 05:43:51,339 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 05:43:52,132 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 05:43:52,132 - __main__ - INFO - Running transform...
+2024-11-25 05:43:52,133 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 05:43:52,133 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 05:43:52,137 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 05:44:00,101 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 05:44:03,227 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 05:44:22,808 - transform - INFO - Dropping the following columns
+2024-11-25 05:44:22,851 - transform - INFO - Filtering ev relevant data
+2024-11-25 05:44:25,674 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 05:44:25,675 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 05:44:31,619 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-25 05:44:33,716 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-25 05:44:34,051 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 05:44:35,619 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 05:44:36,015 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 05:44:37,806 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 05:44:41,121 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 05:44:41,690 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 05:44:42,425 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 05:44:42,425 - __main__ - INFO - Running analyze...
+2024-11-25 05:44:42,425 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 05:44:42,431 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 05:44:42,811 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 05:44:42,846 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 05:44:42,854 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 05:44:42,910 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 05:44:42,917 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 05:44:42,977 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 05:44:42,979 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 05:44:42,979 - __main__ - INFO - Running visualization...
+2024-11-25 05:44:42,979 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 05:44:42,980 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 05:44:42,985 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 05:44:42,994 - mongo - INFO - Successfully fetched 37 records from collection: vehicles_per_type_year.
+2024-11-25 05:44:43,001 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 05:44:43,011 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 05:44:43,024 - mongo - INFO - Successfully fetched 902 records from collection: vehicles_per_county_year.
+2024-11-25 05:44:43,029 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 05:44:43,034 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 05:44:43,051 - mongo - INFO - Successfully fetched 275 records from collection: vehicles_per_make_year.
+2024-11-25 05:44:44,192 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 05:44:44,194 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:25:50,290 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:25:50,291 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:25:50,359 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-25 13:25:50,360 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 13:25:50,361 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 13:25:50,362 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 13:25:50,362 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 13:25:50,363 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 13:25:50,363 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 13:25:50,364 - __main__ - INFO - Running download...
+2024-11-25 13:25:50,364 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:25:50,364 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:25:51,474 - download - INFO - Download completed successfully
+2024-11-25 13:26:07,713 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:26:09,268 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 13:26:13,051 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:26:13,370 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 13:26:13,370 - __main__ - INFO - Running transform...
+2024-11-25 13:26:13,370 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 13:26:13,370 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 13:26:13,373 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:26:17,600 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 13:26:19,597 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 13:26:28,886 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:26:42,592 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:26:42,593 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:26:42,682 - mongo - INFO - Found 1 collections in database vehicle_db. Deleting them...
+2024-11-25 13:26:42,684 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 13:26:42,684 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 13:26:42,684 - __main__ - INFO - Running download...
+2024-11-25 13:26:42,685 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:26:42,685 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:26:42,979 - download - INFO - Download completed successfully
+2024-11-25 13:26:58,674 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:27:00,213 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 13:27:03,930 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:27:04,253 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 13:27:04,253 - __main__ - INFO - Running transform...
+2024-11-25 13:27:04,253 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 13:27:04,254 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 13:27:04,256 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:27:08,406 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 13:27:10,348 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 13:27:28,337 - transform - INFO - Dropping the following columns
+2024-11-25 13:27:28,357 - transform - INFO - Filtering ev relevant data
+2024-11-25 13:27:29,973 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 13:27:29,973 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 13:27:32,601 - transform - INFO - DataFrame converted to Pandas. Shape: (216772, 12)
+2024-11-25 13:27:34,054 - transform - INFO - DataFrame converted to list of dictionaries with 216772 records.
+2024-11-25 13:27:34,095 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 13:27:35,191 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 13:27:35,318 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 13:27:36,435 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 13:27:38,502 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:27:38,694 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 13:27:39,027 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 13:27:39,028 - __main__ - INFO - Running analyze...
+2024-11-25 13:27:39,028 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 13:27:39,031 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 13:27:39,355 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:27:39,412 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 13:27:39,416 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:27:39,459 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 13:27:39,464 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:27:39,523 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 13:27:39,525 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 13:27:39,525 - __main__ - INFO - Running visualization...
+2024-11-25 13:27:39,526 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 13:27:39,526 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 13:27:39,531 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:27:39,535 - mongo - INFO - Successfully fetched 37 records from collection: vehicles_per_type_year.
+2024-11-25 13:27:39,539 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 13:27:39,543 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:27:39,551 - mongo - INFO - Successfully fetched 902 records from collection: vehicles_per_county_year.
+2024-11-25 13:27:39,554 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 13:27:39,557 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:27:39,563 - mongo - INFO - Successfully fetched 275 records from collection: vehicles_per_make_year.
+2024-11-25 13:27:40,514 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 13:27:40,515 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:29:51,841 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:29:51,842 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:29:51,911 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-25 13:29:51,912 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 13:29:51,913 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 13:29:51,914 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 13:29:51,915 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 13:29:51,915 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 13:29:51,916 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 13:29:51,916 - __main__ - INFO - Running download...
+2024-11-25 13:29:51,916 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:29:51,916 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:29:52,222 - download - INFO - Download completed successfully
+2024-11-25 13:30:10,199 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:30:11,795 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 13:30:15,573 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:30:15,882 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 13:30:15,882 - __main__ - INFO - Running transform...
+2024-11-25 13:30:15,882 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 13:30:15,882 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 13:30:15,885 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:30:20,014 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 13:30:21,967 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 13:30:40,876 - transform - INFO - Dropping the following columns
+2024-11-25 13:30:40,905 - transform - INFO - Filtering ev relevant data
+2024-11-25 13:30:42,532 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 13:30:42,533 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 13:30:45,245 - transform - INFO - DataFrame converted to Pandas. Shape: (216732, 12)
+2024-11-25 13:30:46,652 - transform - INFO - DataFrame converted to list of dictionaries with 216732 records.
+2024-11-25 13:30:46,691 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 13:30:47,701 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 13:30:47,820 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 13:30:48,898 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 13:30:50,861 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:30:51,030 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 13:30:51,357 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 13:30:51,357 - __main__ - INFO - Running analyze...
+2024-11-25 13:30:51,358 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 13:30:51,360 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 13:30:51,668 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:30:51,711 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 13:30:51,714 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:30:51,759 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 13:30:51,762 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:30:51,797 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 13:30:51,798 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 13:30:51,799 - __main__ - INFO - Running visualization...
+2024-11-25 13:30:51,799 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 13:30:51,799 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 13:30:51,801 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:30:51,806 - mongo - INFO - Successfully fetched 32 records from collection: vehicles_per_type_year.
+2024-11-25 13:30:51,807 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 13:30:51,812 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:30:51,818 - mongo - INFO - Successfully fetched 881 records from collection: vehicles_per_county_year.
+2024-11-25 13:30:51,820 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 13:30:51,822 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:30:51,828 - mongo - INFO - Successfully fetched 270 records from collection: vehicles_per_make_year.
+2024-11-25 13:30:52,793 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 13:30:52,794 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:35:50,278 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:35:50,279 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:35:50,338 - mongo - INFO - Found 5 collections in database vehicle_db. Deleting them...
+2024-11-25 13:35:50,339 - mongo - INFO - Collection 'ev_vehicle_data_cleaned' has been deleted.
+2024-11-25 13:35:50,340 - mongo - INFO - Collection 'vehicles_per_type_year' has been deleted.
+2024-11-25 13:35:50,341 - mongo - INFO - Collection 'vehicles_per_make_year' has been deleted.
+2024-11-25 13:35:50,341 - mongo - INFO - Collection 'vehicles_per_county_year' has been deleted.
+2024-11-25 13:35:50,342 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 13:35:50,342 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 13:35:50,342 - __main__ - INFO - Running download...
+2024-11-25 13:35:50,342 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:35:50,342 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:35:51,264 - download - INFO - Download completed successfully
+2024-11-25 13:36:02,817 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3>
+2024-11-25 13:36:02,818 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:36:02,818 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2024-11-25 13:36:02,819 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/home/exouser/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 377, in signal_handler
+    self.cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 2255, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 169, in deco
+    return f(*a, **kw)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2024-11-25 13:36:02,820 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:36:02,820 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/home/exouser/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 377, in signal_handler
+    self.cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 2255, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 169, in deco
+    return f(*a, **kw)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2024-11-25 13:36:02,821 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:36:02,821 - download - ERROR - Unexpected error: An error occurred while calling o31.csv
+2024-11-25 13:36:02,821 - download - INFO - Retrying in 5 seconds... (1/3)
+2024-11-25 13:36:08,233 - download - INFO - Download completed successfully
+2024-11-25 13:36:14,930 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:36:57,776 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:36:57,777 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:36:57,844 - mongo - WARNING - No collections found in database vehicle_db. Nothing to delete.
+2024-11-25 13:36:57,844 - __main__ - INFO - Running download...
+2024-11-25 13:36:57,844 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:36:57,844 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:36:58,153 - download - INFO - Download completed successfully
+2024-11-25 13:37:15,036 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:37:16,562 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 13:37:20,324 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:37:20,632 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 13:37:20,633 - __main__ - INFO - Running transform...
+2024-11-25 13:37:20,633 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 13:37:20,633 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 13:37:20,637 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:37:24,736 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 13:37:26,635 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 13:37:27,369 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:38:53,018 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:38:53,020 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:15,144 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:39:15,145 - __main__ - INFO - Reset and Start True
+2024-11-25 13:39:15,145 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:39:15,202 - mongo - INFO - Found 1 collections in database vehicle_db. Deleting them...
+2024-11-25 13:39:15,203 - mongo - INFO - Collection 'ev_vehicle_data_raw' has been deleted.
+2024-11-25 13:39:15,204 - __main__ - INFO - Checkpoint file reset successfully.
+2024-11-25 13:39:15,204 - __main__ - INFO - Running download...
+2024-11-25 13:39:15,204 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:39:15,204 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:39:15,524 - download - INFO - Download completed successfully
+2024-11-25 13:39:23,160 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3>
+2024-11-25 13:39:23,161 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:23,161 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2024-11-25 13:39:23,162 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/home/exouser/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 377, in signal_handler
+    self.cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 2255, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 169, in deco
+    return f(*a, **kw)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2024-11-25 13:39:23,163 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:23,163 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/home/exouser/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 377, in signal_handler
+    self.cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 2255, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 169, in deco
+    return f(*a, **kw)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2024-11-25 13:39:23,163 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:23,163 - download - ERROR - Unexpected error: An error occurred while calling z:org.apache.spark.sql.Encoders.STRING
+2024-11-25 13:39:23,163 - download - INFO - Retrying in 5 seconds... (1/3)
+2024-11-25 13:39:28,640 - download - INFO - Download completed successfully
+2024-11-25 13:39:30,243 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:41,539 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:39:41,540 - __main__ - INFO - Reset and Start True
+2024-11-25 13:39:41,540 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:39:41,614 - mongo - WARNING - No collections found in database vehicle_db. Nothing to delete.
+2024-11-25 13:39:41,614 - __main__ - INFO - Running download...
+2024-11-25 13:39:41,615 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:39:41,615 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:39:41,932 - download - INFO - Download completed successfully
+2024-11-25 13:39:52,619 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3>
+2024-11-25 13:39:52,619 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:52,619 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+RuntimeError: reentrant call inside <_io.BufferedReader name=3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2024-11-25 13:39:52,620 - py4j.clientserver - INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/home/exouser/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 377, in signal_handler
+    self.cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 2255, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 169, in deco
+    return f(*a, **kw)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+2024-11-25 13:39:52,620 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:52,621 - root - ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/home/exouser/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 377, in signal_handler
+    self.cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/context.py", line 2255, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 169, in deco
+    return f(*a, **kw)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o13.sc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/home/exouser/anaconda3/lib/python3.9/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+2024-11-25 13:39:52,621 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:39:52,621 - download - ERROR - Unexpected error: An error occurred while calling o31.csv
+2024-11-25 13:39:52,621 - download - INFO - Retrying in 5 seconds... (1/3)
+2024-11-25 13:39:53,794 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:44:56,223 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:44:56,225 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:45:38,323 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:45:38,324 - __main__ - INFO - Reset and Start True
+2024-11-25 13:45:38,324 - __main__ - INFO - Resetting pipeline and starting from scratch.
+2024-11-25 13:45:38,422 - mongo - WARNING - No collections found in database vehicle_db. Nothing to delete.
+2024-11-25 13:45:38,422 - __main__ - INFO - Running download...
+2024-11-25 13:45:38,422 - __main__ - INFO - Executing stage 1...Download...
+2024-11-25 13:45:38,423 - download - INFO - Starting download from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv
+2024-11-25 13:45:38,843 - download - INFO - Download completed successfully
+2024-11-25 13:45:56,677 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:45:58,277 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_raw
+2024-11-25 13:46:02,090 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:46:02,409 - __main__ - INFO - Checkpoint saved for stage: download
+2024-11-25 13:46:02,410 - __main__ - INFO - Running transform...
+2024-11-25 13:46:02,410 - __main__ - INFO - Executing stage 2...Transform...
+2024-11-25 13:46:02,410 - mongo - INFO - Getting full data from mongodb (db-vehicle_db, collection-ev_vehicle_data_raw
+2024-11-25 13:46:02,412 - mongo - INFO - Connected to collection: ev_vehicle_data_raw
+2024-11-25 13:46:06,596 - mongo - INFO - Successfully retrieved 216772 documents from collection ev_vehicle_data_raw.
+2024-11-25 13:46:08,590 - transform - INFO - Converting data to PySpark DataFrame for fast-distributed computing
+2024-11-25 13:46:27,423 - transform - INFO - Dropping the following columns
+2024-11-25 13:46:27,456 - transform - INFO - Filtering ev relevant data
+2024-11-25 13:46:29,331 - transform - INFO - Transformation completed! Total rows 216732
+2024-11-25 13:46:29,332 - transform - INFO - Starting conversion of DataFrame to JSON list.
+2024-11-25 13:46:32,341 - transform - INFO - DataFrame converted to Pandas. Shape: (216732, 12)
+2024-11-25 13:46:33,819 - transform - INFO - DataFrame converted to list of dictionaries with 216732 records.
+2024-11-25 13:46:33,865 - transform - INFO - Primary key 'DOL Vehicle ID' successfully set as '_id' in all records.
+2024-11-25 13:46:34,914 - transform - INFO - Conversion to JSON list completed successfully.
+2024-11-25 13:46:35,048 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 13:46:36,183 - mongo - INFO - Inserting data into db - vehicle_db, Collection - ev_vehicle_data_cleaned
+2024-11-25 13:46:38,454 - mongo - INFO - Data inserted successfully into MongoDB!
+2024-11-25 13:46:38,707 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 13:46:39,165 - __main__ - INFO - Checkpoint saved for stage: transform
+2024-11-25 13:46:39,166 - __main__ - INFO - Running analyze...
+2024-11-25 13:46:39,166 - __main__ - INFO - Executing stage 3...Analyze...
+2024-11-25 13:46:39,169 - mongo - INFO - Connected to collection: ev_vehicle_data_cleaned
+2024-11-25 13:46:39,483 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:46:39,541 - mongo - INFO - Query output saved to new collection 'vehicles_per_type_year' successfully!
+2024-11-25 13:46:39,546 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:46:39,584 - mongo - INFO - Query output saved to new collection 'vehicles_per_county_year' successfully!
+2024-11-25 13:46:39,587 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:46:39,641 - mongo - INFO - Query output saved to new collection 'vehicles_per_make_year' successfully!
+2024-11-25 13:46:39,643 - __main__ - INFO - Checkpoint saved for stage: analyze
+2024-11-25 13:46:39,643 - __main__ - INFO - Running visualization...
+2024-11-25 13:46:39,644 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 13:46:39,644 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 13:46:39,646 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:46:39,651 - mongo - INFO - Successfully fetched 32 records from collection: vehicles_per_type_year.
+2024-11-25 13:46:39,652 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 13:46:39,655 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:46:39,670 - mongo - INFO - Successfully fetched 881 records from collection: vehicles_per_county_year.
+2024-11-25 13:46:39,675 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 13:46:39,680 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:46:39,690 - mongo - INFO - Successfully fetched 270 records from collection: vehicles_per_make_year.
+2024-11-25 13:46:40,623 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 13:46:40,623 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:48:31,931 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:48:31,932 - __main__ - INFO - Reset and Start False
+2024-11-25 13:48:31,932 - __main__ - INFO - Checkpoint loaded successfully.
+2024-11-25 13:48:31,933 - py4j.clientserver - INFO - Closing down clientserver connection
+2024-11-25 13:49:17,764 - __main__ - INFO - Starting the pipeline execution...
+2024-11-25 13:49:17,765 - __main__ - INFO - Reset and Start False
+2024-11-25 13:49:17,765 - __main__ - INFO - Checkpoint loaded successfully.
+2024-11-25 13:49:17,765 - __main__ - INFO - Running visualization...
+2024-11-25 13:49:17,765 - __main__ - INFO - Executing stage 4...Visualization...
+2024-11-25 13:49:17,766 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_type_year
+2024-11-25 13:49:17,834 - mongo - INFO - Connected to collection: vehicles_per_type_year
+2024-11-25 13:49:17,840 - mongo - INFO - Successfully fetched 32 records from collection: vehicles_per_type_year.
+2024-11-25 13:49:17,842 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_county_year
+2024-11-25 13:49:17,845 - mongo - INFO - Connected to collection: vehicles_per_county_year
+2024-11-25 13:49:17,853 - mongo - INFO - Successfully fetched 881 records from collection: vehicles_per_county_year.
+2024-11-25 13:49:17,855 - mongo - INFO - Attempting to fetch data from collection: vehicles_per_make_year
+2024-11-25 13:49:17,857 - mongo - INFO - Connected to collection: vehicles_per_make_year
+2024-11-25 13:49:17,863 - mongo - INFO - Successfully fetched 270 records from collection: vehicles_per_make_year.
+2024-11-25 13:49:18,768 - __main__ - INFO - Checkpoint saved for stage: visualization
+2024-11-25 13:49:18,769 - py4j.clientserver - INFO - Closing down clientserver connection
