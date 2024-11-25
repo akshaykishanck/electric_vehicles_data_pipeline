@@ -17,6 +17,9 @@ This project is a data pipeline that downloads, transforms, and analyzes data, w
 2. Go to the project
    ```bash
    cd INFOI535-FinalProject
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
 3. Setup MongoDB and start service:
    ```bash
    ./mongo_setup.sh
