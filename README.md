@@ -35,7 +35,7 @@ NOTE: The above code(3) works for Ubuntu users only. MacOS and Windows users ple
    ```bash 
    python main.py --reset_and_start
    ```
-NOTE: If you want to run the pipeline from where it stopped use the command. The `current_stage` is tracked in `pipeline-checkpoint.json` in the `config` folder   
+NOTE: If you want to run the pipeline from where it stopped use the command below. The `current_stage` is tracked in `pipeline-checkpoint.json` in the `config` folder   
 ```
 python main.py
 ```
