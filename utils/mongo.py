@@ -29,7 +29,6 @@ def save_query_output_to_new_collection(query_output, new_collection_name):
     """
     Saves the output of a MongoDB query to a new collection in the database.
 
-    :param db: The MongoDB database object.
     :param query_output: List of dictionaries containing query output.
     :param new_collection_name: Name of the new collection to store the output.
     :return: None
@@ -54,13 +53,8 @@ def delete_collection(collection_name):
     """
     Deletes a collection from a MongoDB database.
 
-    Parameters:
-    - database_name (str): Name of the MongoDB database.
-    - collection_name (str): Name of the collection to delete.
-    - mongo_uri (str): MongoDB connection URI (default is 'mongodb://localhost:27017/').
-
-    Returns:
-    - str: Message indicating success or failure.
+    :param collection_name (str): Name of the collection to delete.
+    :return str: Message indicating success or failure.
     """
     try:
 
@@ -83,9 +77,11 @@ def delete_collection(collection_name):
 
 # Function to insert data into MongoDB given a JSON list
 def insert_data_to_mongodb(collection_name:str, json_list):
+    """
+    :param collection_name(str): name of the collection to insert data
+    :param json_list: data to be inserted
+    """
     try:
-        # Convert JSON strings to Python dictionaries
-        # Convert JSON strings to Python dictionaries
         collection = connect_to_mongodb(collection_name)
 
         data_to_insert = [
@@ -105,6 +101,10 @@ def insert_data_to_mongodb(collection_name:str, json_list):
 
 # Function to retrieve data from MongoDB as a list of JSON objects
 def get_full_data_from_mongodb(collection_name:str):
+    """
+    :param collection_name(str): collection to retrieve the data from
+    :return list of json
+    """
     logger.info(f"Getting full data from mongodb (db-{DB_NAME}, collection-{collection_name}")
     try:
         collection = connect_to_mongodb(collection_name)

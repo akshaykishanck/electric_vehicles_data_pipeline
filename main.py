@@ -10,7 +10,7 @@ from utils.queries import *
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,  # Set the logging level (DEBUG, INFO, WARNING, etc.)
+    level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("logs/pipeline.log"),  # Log to a file
@@ -123,12 +123,18 @@ def main(reset_and_start=True):
             break
 
 def run_download_stage():
+    """
+    Download raw ev population data from internet and put it into mongoDB
+    """
     logger.info("Executing stage 1...Download...")
     download_url = "https://data.wa.gov/api/views/f6w7-q2d2/rows.csv"
     raw_data = download_file(download_url)
     insert_data_to_mongodb(collection_name='ev_vehicle_data_raw', json_list=raw_data)
 
 def run_transform_stage():
+    """
+    Filter and apply tranformations on the raw data and push it to db to be ready for analysis queries 
+    """
     logger.info("Executing stage 2...Transform...")
     raw_json = get_full_data_from_mongodb(collection_name='ev_vehicle_data_raw')
     transformed_data = apply_transformations_to_ev_data(raw_json)
@@ -136,6 +142,9 @@ def run_transform_stage():
     save_checkpoint("transform")
 
 def run_analyze_stage():
+    """
+    Run queries on the transformed and store the agg/filtered data and store custom analysis results into mongoDB
+    """
     logger.info("Executing stage 3...Analyze...")
     collection = connect_to_mongodb("ev_vehicle_data_cleaned")
     query1 = query_vehicles_by_year_and_type(collection)
@@ -146,6 +155,9 @@ def run_analyze_stage():
     save_query_output_to_new_collection(query3, "vehicles_per_make_year")
 
 def run_visualization_stage():
+    """
+    Fetch agg/filtered tables from Analysis stage for visualization using matplotlib
+    """
     logger.info("Executing stage 4...Visualization...")
     vehicles_by_year_and_type = fetch_data_from_collection("vehicles_per_type_year")
     vehicles_by_county_and_year = fetch_data_from_collection("vehicles_per_county_year")
