@@ -26,11 +26,12 @@ Metadata(from the above website)
 3. Install the required packages:
    ```bash
    pip install -r requirements.txt
-3. Setup MongoDB and start service:
+4. Setup MongoDB and start service:
    ```bash
    ./mongo_setup.sh
 NOTE: The above code(3) works for Ubuntu users only. MacOS and Windows users please refer MongoDB documentation to install and start a MongoDB service.
-4. Run the pipeline(from start, deletes all noSQL collections if present):
+
+5. Run the pipeline(from start, deletes all noSQL collections if present):
    ```bash 
    python main.py --reset_and_start
    ```
