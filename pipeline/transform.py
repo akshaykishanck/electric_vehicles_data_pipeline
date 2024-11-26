@@ -6,7 +6,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 spark = SparkSession.builder \
-    .appName("CSV Validation Example") \
+    .appName("Transformation") \
     .getOrCreate()
 
 
@@ -20,22 +20,40 @@ EV_COLUMNS_TO_DROP = [
 ]
 
 def drop_columns(df, columns_to_drop):
+    """
+    :param df: dataframe
+    :param columns_to_drop: list of columns to drop
+    :return: dataframe after dropping columns
+    """
     logger.info("Dropping the following columns")
     df = df.drop(*columns_to_drop)
     return df
 
 def filter_ev_relevant_data(df):
+    """
+    :param df: dataframe
+    :return: dataframe after removing nulls and filtering model year
+    """
     logger.info("Filtering ev relevant data")
     df = df.filter(df['County'].isNotNull())
     df_filtered = df.filter(df['Model Year'] >= 2010)
     return df_filtered
 
 def rename_columns(df, rename_dict):
+    """
+    :param df: dataframe
+    :param rename_dict: dictionary containing old and new column names as keys as values
+    :return: dataframe with updated column names
+    """
     for key in rename_dict.keys():
         df = df.withColumnRenamed(key, rename_dict[key])
     return df
 
 def apply_transformations_to_ev_data(json_list:list[dict]):
+    """
+    :param json_list: raw data as a list of jsons
+    :return: json data after filtering and transformations
+    """
     logger.info("Converting data to PySpark DataFrame for fast-distributed computing")
     df = spark.createDataFrame(json_list)
     df = drop_columns(df, EV_COLUMNS_TO_DROP)
@@ -49,17 +67,10 @@ def apply_transformations_to_ev_data(json_list:list[dict]):
 
 def convert_df_to_json_list(df, primary_key=None):
     """
-    Convert a PySpark DataFrame to a list of JSON strings and optionally set a primary key.
-
-    Parameters:
-        df (pyspark.sql.DataFrame): The PySpark DataFrame to convert.
-        primary_key (str, optional): The column name to set as the "_id" field in MongoDB.
-
-    Returns:
-        list: A list of JSON strings ready for MongoDB insertion.
-
-    Raises:
-        ValueError: If the primary key is not present in the DataFrame records.
+    :param df (pyspark.sql.DataFrame): The PySpark DataFrame to convert.
+    :primary_key (str, optional): The column name to set as the "_id" field in MongoDB.
+    :return A list of JSON strings ready for MongoDB insertion.
+    :raises: ValueError: If the primary key is not present in the DataFrame records.
     """
     try:
         logger.info("Starting conversion of DataFrame to JSON list.")

@@ -9,13 +9,9 @@ def download_file(url, retries=3):
     """
     Downloads a file from a given URL, converts it into a PySpark DataFrame, and returns it as JSON objects.
 
-    Args:
-        url (str): The URL of the file to download.
-        retries (int): Number of retry attempts before quitting (default: 3).
-        timeout (int): Timeout (in seconds) for each download attempt (default: 10).
-
-    Returns:
-        list: List of JSON objects representing the data in the file.
+    :param url (str): The URL of the file to download.
+    :param retries (int): Number of retry attempts before quitting (default: 3).
+    :return list: List of JSON objects representing the data in the file.
     """
     logger.info(f"Starting download from {url}")
     attempt = 0
