@@ -19,10 +19,10 @@ Metadata(from the above website)
 ## How to Run the Project
 1. Clone the repository:
    ```bash
-   git clone https://github.com/akshaykishanck/INFOI535-FinalProject.git
+   git clone https://github.com/akshaykishanck/electric_vehicles_data_pipeline.git
 2. Go to the project
    ```bash
-   cd INFOI535-FinalProject
+   cd electric_vehicles_data_pipeline
 3. Install the required packages:
    ```bash
    pip install -r requirements.txt
